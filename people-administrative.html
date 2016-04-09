@@ -22,7 +22,7 @@
 		<div id="header" style="">
 			<div class="container">
 				<img alt="Logo" src="./resource/logo2.png" style="margin:0px;height:100px ">
-					<div style="float: right">
+				<div style="float: right">
 					<img src="./resource/search.png" style="width: 31px;margin-top: 19px;margin-right: 30px;">
 				</div>
 			</div>
@@ -31,16 +31,46 @@
 		<div id="menu" style="">
 			<div class="container " style="">
 				<div class="navbar" style="background-color:#;margin:0px 0;height:42px;color:white;" id="navbar"></div>
-				<script>$("#navbar").load("menu.html", function(){ $(".menuEvents").addClass("currentMenu");});</script>
+				<script>$("#navbar").load("menu.html", function(){ $(".menuPeople").addClass("currentMenu");});</script>
 			</div>
 		</div>
 
 		<div class="container " style="">
 			
-			<div class="nav-title" style="padding-top: 20px; padding-left: 20px;">
-				<a href style="text-decoration: none !important; cursor: text !important;">Conferences & Workshops</a>
+			
+		<div class="container " style="">
+			
+			<style>
+				.row table p {padding-left: 4px;}
+				.row table tr {border-top: 1px dotted #AAAAAA;}
+				.row table tr:first-child {border-top: 0;}
+				.row table tr td{padding: 15px;}
+			</style>
+			
+			
+			<div class="row" style="margin-top: 15px; padding-left: 50px; padding-right: 50px;">
+				<table class="teacherList">
+					<tr>
+						<td style="width: 250px; padding: 15px;">
+							<img src="./resource/photo_meitu_3.jpg"   />
+						</td>
+						<td style="width: 10px;">&nbsp;</td>
+						<td style="width: 700px;">
+							<h2>Huili Liang</h2>
+							<p>Administrative Assistant</p>
+							<p>ShEFU</p>
+							
+							<p><strong>Interests: </strong>Approximate Counting
+, Complexity of Counting Problems, Algorithmic Game Theory, Holographic Algorithms.</p>
+							<p><strong>Email: </strong><a href="mailto:lu.pinyan@mail.shufe.edu.cn">lu.pinyan@mail.shufe.edu.cn</a></p>
+							<p><strong>Homepage: </strong><a href="http://itcs.shufe.edu.cn/pinyan/">http://itcs.shufe.edu.cn/pinyan/</a></p>
+							
+						</td>
+					</tr>
+					
+				</table>
 			</div>
-
+			
 		</div>
 
 		<div style="border-top:1px solid #d6d6d6; margin-top:3em; margin-bottom: 3em;" class="footer">
