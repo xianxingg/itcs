@@ -1,0 +1,7 @@
+1. 表头调整为 year, author, title, journal, url
+2. 把所有的英文逗号替换为中文逗号
+3. 把所有的作者姓名之间的空格替换为空（姓名之间的空格其实不是空格，不知道是什么字符）
+4. 导出为csv（逗号分隔）
+5. http://csv2json.com/
+6. 粘贴到research-publications.html
+7. 去掉最后一行的空数据
