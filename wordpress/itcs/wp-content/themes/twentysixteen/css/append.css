@@ -91,3 +91,12 @@
 .row table.visitorList tr:first-child {border-top: 0;}
 .row table.visitorList tr td{padding: 15px;}
 .row table.visitorList img {width: 170px;height: 220px;}
+
+
+
+
+.researchList tr { border-top: 1px solid #BFBFBF; }
+.researchList tr:first-child { border-top:0; color: #555; font-weight: bold; font-size: 14px; }
+.researchList td,th { padding-top: 5px; padding-bottom: 5px; border-left: 1px solid #BFBFBF; padding-left: 3px; }
+.researchList tr td:first-child, th:first-child { border-left: 0; }
+.yearList li { display: inline-block; width: 50px;}
