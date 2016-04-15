@@ -102,7 +102,7 @@
         iframeRailway = document.getElementById("iframeRailway");
         
         iframePuDong.onload = iframePuDong.onreadystatechange = function() {
-          if (!iframePuDong.readyState || iframePuDong.readyState == "complete") {
+          if (typeof(iframePuDong.readyState) != "undefined" && (!iframePuDong.readyState || iframePuDong.readyState == "complete")) {
             iframePuDong.style.display = 'block';
           } else {
             iframePuDong.style.display = 'none';
@@ -110,7 +110,7 @@
         };
         
         iframeHongQiao.onload = iframeHongQiao.onreadystatechange = function() {
-          if (!iframeHongQiao.readyState || iframeHongQiao.readyState == "complete") {
+					if (typeof(iframeHongQiao.readyState) != "undefined" && (!iframeHongQiao.readyState || iframeHongQiao.readyState == "complete")) {
             iframeHongQiao.style.display = 'block';
           } else {
             iframeHongQiao.style.display = 'none';
@@ -118,7 +118,7 @@
         };
         
         iframeRailway.onload = iframeRailway.onreadystatechange = function() {
-          if (!iframeRailway.readyState || iframeRailway.readyState == "complete") {
+					if (typeof(iframeRailway.readyState) != "undefined" && (!iframeRailway.readyState || iframeRailway.readyState == "complete")) {
             iframeRailway.style.display = 'block';
           } else {
             iframeRailway.style.display = 'none';
