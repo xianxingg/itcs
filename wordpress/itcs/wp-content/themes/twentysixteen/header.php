@@ -25,6 +25,7 @@
 			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
 		<![endif]-->
 		<script src="<?php echo get_template_directory_uri(); ?>/js/application.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/append.js"></script>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/marquee.js"></script>		
 		<script src="<?php echo get_template_directory_uri(); ?>/js/underscore-min.js"></script>
 

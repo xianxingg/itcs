@@ -9,6 +9,62 @@
 
 get_header(); ?>
 
-<?php the_content(); ?>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+<?php 
+$isNews = false;
+$isSW = false;
+$cats = get_the_category();
+foreach ($cats as $cat) {
+  #echo $cat->cat_name;
+  #echo "<br>";
+  
+  if ($cat->cat_name == 'NEWS') : $isNews = true; endif;
+  if ($cat->cat_name == 'SUMMER &amp; WINTER SCHOOLS' || $cat->cat_name == 'SUMMER &amp; WINTER SCHOOL') : $isSW = true; endif;
+}
+
+if ($isNews) : echo "<script>window.setCurrentMenu('NEWS');</script>"; endif;
+if ($isSW) : echo "<script>window.setCurrentMenu('EVENTS');</script>"; endif;
+?>
+
+<?php if ($isNews) { ?>
+<h1 class="news-title"><?php the_title(); ?></h1>
+<div><?php the_content(); ?></div>
+<?php } else if ($isSW) { ?>
+  <div class="nav-title" style="padding-top: 20px; padding-left: 20px;">
+    <a href style="text-decoration: none !important; cursor: text !important;">Summer & Winter School</a>
+  </div>
+  
+  <div style="padding-left: 25px; padding-right: 25px;">
+      <h3 style="text-align: center;font-size: 16px;color: #ae1831;"><?php the_field('itcs_event_title'); ?></h3>
+      
+      <p class="big_red_title">Brief Introduction</p>
+      <p><?php the_field('itcs_event_intro'); ?></p>
+      
+      <p class="big_red_title">Time</p>
+      <p><?php echo get_field('itcs_event_time_start') . " ~ " . get_field('itcs_event_time_end'); ?>
+
+      <p class="big_red_title">Lecturers</p>
+      <p><?php the_field('itcs_event_lecturer') ?></p>
+      
+      <p class="big_red_title">Venue</p>
+      <p><?php the_field('itcs_event_venue') ?></p>
+      
+      <p class="big_red_title">Application and Registration</p>
+      <?php if (get_field('itcs_event_application_url')) : echo ("<a href='" . get_field('itcs_event_application_url') . "' target='_blank'>" . get_field('itcs_event_application') . "</a>"); ?>
+      <?php else : the_field('itcs_event_application'); endif; ?>
+      
+      <p class="big_red_title">Program</p>
+      <p><?php the_field('itcs_event_schedule') ?></p>
+      
+      <p class="big_red_title">Contact Us</p>
+      <p><a href="<?php echo get_template_directory_uri(); ?>/people/administrative-assistant/" target="_blank"><?php the_field('itcs_contact_us'); ?></a></p>
+      
+      <p class="big_red_title">Directions to ITCS</p>
+      <p><a href="<?php echo get_template_directory_uri(); ?>/about-us/contact-us/" target="_blank">View Direction Page</a></p>
+  </div>
+<?php } ?>
+
+<?php endwhile; endif; ?>
 
 <?php get_footer(); ?>

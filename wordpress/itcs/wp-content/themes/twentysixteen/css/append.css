@@ -94,9 +94,29 @@
 
 
 
-
+.researchList {width: 890px;}
 .researchList tr { border-top: 1px solid #BFBFBF; }
 .researchList tr:first-child { border-top:0; color: #555; font-weight: bold; font-size: 14px; }
 .researchList td,th { padding-top: 5px; padding-bottom: 5px; border-left: 1px solid #BFBFBF; padding-left: 3px; }
 .researchList tr td:first-child, th:first-child { border-left: 0; }
 .yearList li { display: inline-block; width: 50px;}
+
+hr{
+  margin: 10px 0;
+}
+
+h1.news-title {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 5px 10px;
+  margin: 13px 11px 13px 0;
+  border-bottom: 1px solid #efefef;
+}
+
+.big_red_title { 
+  color: #ae1831; 
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;margin-top: 1.5em;padding-bottom: 0.2em;border-left: 0px solid #ddd;line-height: 20px; 
+}

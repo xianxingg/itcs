@@ -1,8 +1,8 @@
 <?php
 /**
- * Template Name: Table
+ * Template Name: TABLE
  */
- 
+
 get_header(); ?>
 
 <?php if (get_field('itcs_inner_title')) { ?>
@@ -27,11 +27,11 @@ if ($query->have_posts()) { ?>
 <?php if ($slug == 'research-publications') { ?>
   <span style="float: left;padding: 0 27px;color: #ae1831;">By Year: </span>
   <ul class="yearList">
-    <li><a href='javascript:;' onclick='$(\"#tb tr\").show()'>All</a></li>
+    <li><a href='javascript:;' onclick="$('#tb tr').show()">All</a></li>
     <?php 
       global $wpdb;
       $years = $wpdb->get_col( $wpdb->prepare(
-        "Select distinct(meta_value) From $wpdb->postmeta Where meta_key = %s Order By meta_value desc"
+        "Select distinct(meta_value) From $wpdb->postmeta Where meta_key = 'itcs_year_pub' Order By meta_value desc"
       ));
       
       if ($years) {
@@ -49,7 +49,7 @@ if ($query->have_posts()) { ?>
     while ($query->have_posts()) : 
       $query->the_post();
       
-      echo "<tr class='thesis_at_year_" . get_field('itcs_year_pub') . "'>";
+      echo "<tr class='thesis_by_year_" . get_field('itcs_year_pub') . "'>";
       echo "<td>".get_field('itcs_year_pub')."</td>";
       echo "<td><a href='".get_field('itcs_download_url_pub')."' target='_blank'>".get_field('itcs_title_pub')."</a></td>";
       echo "<td>".get_field('itcs_author_pub')."</td>";
