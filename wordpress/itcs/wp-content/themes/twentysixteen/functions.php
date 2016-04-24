@@ -614,11 +614,58 @@ class itcs_menu_walker extends Walker_Nav_Menu {
 	}
 }
 
-if( function_exists('acf_add_options_page') ) {
-	
-	acf_add_options_page();
-	
-	acf_add_options_sub_page('4People');
+
+function pagination($query_string){
+global $posts_per_page, $paged;
+$my_query = new WP_Query($query_string ."&posts_per_page=-1");
+$total_posts = $my_query->post_count;
+if(empty($paged))$paged = 1;
+$prev = $paged - 1;
+$next = $paged + 1;
+$range = 2; // only edit this if you want to show more page-links
+$showitems = ($range * 2)+1;
+ 
+$pages = ceil($total_posts/$posts_per_page);
+if(1 != $pages){
+echo "<div class='pagination'>";
+echo ($paged > 2 && $paged+$range+1 > $pages && $showitems < $pages)? "
+<a href='".get_pagenum_link(1)."'>最前</a>":"";
+echo ($paged > 1 && $showitems < $pages)? "
+<a href='".get_pagenum_link($prev)."'>上一页</a>":"";
+ 
+for ($i=1; $i <= $pages; $i++){
+if (1 != $pages &&( !($i >= $paged+$range+1 ||
+    $i <= $paged-$range-1) || $pages <= $showitems )){
+echo ($paged == $i)? "<span class='current'>".$i."</span>":
+"<a href='".get_pagenum_link($i)."' class='inactive' >".$i."</a>";
+}
+}
+ 
+echo ($paged < $pages && $showitems < $pages) ?
+"<a href='".get_pagenum_link($next)."'>下一页</a>" :"";
+echo ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) ?
+"<a href='".get_pagenum_link($pages)."'>最后</a>":"";
+echo "</div>\n";
+}
 }
 
-?>
+
+function par_pagenavi($range = 9){
+	global $paged, $wp_query;
+	if ( !$max_page ) {$max_page = $wp_query->max_num_pages;}
+	if($max_page > 1){if(!$paged){$paged = 1;}
+	if($paged != 1){echo "<a href='" . get_pagenum_link(1) . "' class='extend' title='跳转到首页'> 返回首页 </a>";}
+	previous_posts_link(' 上一页 ');
+    if($max_page > $range){
+		if($paged < $range){for($i = 1; $i <= ($range + 1); $i++){echo "<a href='" . get_pagenum_link($i) ."'";
+		if($i==$paged)echo " class='current'";echo ">$i</a>";}}
+    elseif($paged >= ($max_page - ceil(($range/2)))){
+		for($i = $max_page - $range; $i <= $max_page; $i++){echo "<a href='" . get_pagenum_link($i) ."'";
+		if($i==$paged)echo " class='current'";echo ">$i</a>";}}
+	elseif($paged >= $range && $paged < ($max_page - ceil(($range/2)))){
+		for($i = ($paged - ceil($range/2)); $i <= ($paged + ceil(($range/2))); $i++){echo "<a href='" . get_pagenum_link($i) ."'";if($i==$paged) echo " class='current'";echo ">$i</a>";}}}
+    else{for($i = 1; $i <= $max_page; $i++){echo "<a href='" . get_pagenum_link($i) ."'";
+    if($i==$paged)echo " class='current'";echo ">$i</a>";}}
+	next_posts_link(' 下一页 ');
+    if($paged != $max_page){echo "<a href='" . get_pagenum_link($max_page) . "' class='extend' title='跳转到最后一页'> 最后一页 </a>";}}
+}

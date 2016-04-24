@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: NEWS
+ * Template Name: EVENTS
  */
 
 get_header(); ?>
@@ -13,15 +13,22 @@ get_header(); ?>
 <?php } ?>
 
 <?php
+global $post;
+$slug = $post->post_name;
+$cat = '';
+if ($slug == 'conferences-workshops'): $cat = 'conferences_workshops';
+elseif ($slug == 'summer-winter-schools'): $cat = 'summer_winter_schools'; endif;
+?>
+
+<?php
+
+
   echo '    <ul style="margin-top: 30px;">';
 
-  
-  
-  
-  
-  
+
+
   # 需要定义的字段
-  $category_name = 'news';
+  $category_name = $cat;
   $show_posts = 10;
 
   $temp = $wp_query; 
@@ -51,13 +58,14 @@ get_header(); ?>
 
   }
 
-  //Query 
+  //Query
+  
   $wp_query = new WP_Query(
     array(
       "showposts" => $show_posts,
       "category_name" => $category_name,
       "paged" => $paged,
-      "meta_key" => "itcs_general_order_news",
+      "meta_key" => "itcs_general_order_evt",
       "orderby" => array( "meta_value_num" => "desc", "date" => "desc")
     )
   );
@@ -74,8 +82,8 @@ get_header(); ?>
   
       <li>
 				<div style="display: block;">
-					<span style="width: 700px; overflow: hidden;"><a href="<?php the_permalink(); ?>" target="_blank"><?php the_title(); ?></a></span>
-					<span style="float: right;"><?php the_time('Y-m-d'); ?></span>
+          <span style="display: block; clear: both;"><?php echo str_replace("-", "/", get_field('itcs_event_date_start')) . " ~ " . str_replace("-", "/", get_field('itcs_event_date_end')) ?></span>
+					<span style="width: 700px; overflow: hidden; padding-left: 20px;"><a href="<?php the_permalink(); ?>" target="_blank"><?php the_title(); ?></a></span>
 				</div>
 			</li>
       
@@ -86,12 +94,11 @@ get_header(); ?>
   <?php previous_posts_link('« ') ?>
   <?php
   $count_post = ceil($count_posts / $show_posts);
-  
+
   if ($count_post > 1) {
   for($i = 1; $i <= $count_post ; $i++) { ?>
   <a <?php if($req_uri[1] == $i) { echo 'class=active_page'; } ?> href="<?php echo $uri . $i; ?>" rel="external nofollow" ><?php echo $i; ?></a>
-  <?php }
-  }
+  <?php }}
   ?>
   <?php next_posts_link(' »') ?>
   </nav>
@@ -100,11 +107,9 @@ get_header(); ?>
   $wp_query = null; 
   $wp_query = $temp;  // Reset
 
-  
-  
-  
-  
-	echo '</ul>';
+
+  echo '</ul>';
+
 ?>
 </div>
 

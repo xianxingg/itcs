@@ -39,13 +39,13 @@ if ($isSW || $isCW) : echo "<script>window.setCurrentMenu('EVENTS');</script>"; 
   </div>
   
   <div style="padding-left: 25px; padding-right: 25px;">
-      <h3 style="text-align: center;font-size: 16px;color: #ae1831;"><?php the_field('itcs_event_title'); ?></h3>
+      <h3 style="text-align: center;font-size: 16px;color: #ae1831;"><?php the_title(); ?></h3>
       
       <p class="big_red_title">Brief Introduction</p>
       <p><?php the_field('itcs_event_intro'); ?></p>
       
       <p class="big_red_title">Time</p>
-      <p><?php echo get_field('itcs_event_time_start') . " ~ " . get_field('itcs_event_time_end'); ?>
+      <p><?php echo get_field('itcs_event_date_start') . " ~ " . get_field('itcs_event_date_end'); ?>
 
       <p class="big_red_title">Lecturers</p>
       <p><?php the_field('itcs_event_lecturer') ?></p>

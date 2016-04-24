@@ -63,7 +63,7 @@ get_header(); ?>
 					
 					if ($query_conf->have_posts()) {
 					while ($query_conf->have_posts()) : $query_conf->the_post();
-						echo "<dl class='conference-home'><dt>" . str_replace("-", ".", get_field('itcs_event_time_start')) . " - " . str_replace("-", ".", get_field('itcs_event_time_end')) . "</dt><dd><a href='" . get_the_permalink() . "' target='_blank'>" . get_the_title() . "</a></dd></dl>";
+						echo "<dl class='conference-home'><dt>" . str_replace("-", ".", get_field('itcs_event_date_start')) . " - " . str_replace("-", ".", get_field('itcs_event_date_end')) . "</dt><dd><a href='" . get_the_permalink() . "' target='_blank'>" . get_the_title() . "</a></dd></dl>";
 					endwhile;
 					}
 				?>
@@ -90,7 +90,7 @@ get_header(); ?>
 			
 			if ($query_conf->have_posts()) {
 			while ($query_conf->have_posts()) : $query_conf->the_post();
-				echo "<dl class='conference-home'><dt>" . str_replace("-", ".", get_field('itcs_event_time_start')) . " - " . str_replace("-", ".", get_field('itcs_event_time_end')) . "</dt><dd><a href='" . get_the_permalink() . "' target='_blank'>" . get_the_title() . "</a></dd></dl>";
+				echo "<dl class='conference-home'><dt>" . str_replace("-", ".", get_field('itcs_event_date_start')) . " - " . str_replace("-", ".", get_field('itcs_event_date_end')) . "</dt><dd><a href='" . get_the_permalink() . "' target='_blank'>" . get_the_title() . "</a></dd></dl>";
 			endwhile;
 			}
 		?>
@@ -114,7 +114,7 @@ get_header(); ?>
 			echo "<ul>";
 			while ($query_visitor->have_posts()) : $query_visitor->the_post();
 			
-			echo "<li><a href='" .get_field('itcs_person_homepage_acd') . "' target='_blank' onmouseover=\"Tip('Name：" . get_field('itcs_person_name_acd') . "<br>Uni: " . get_field('itcs_person_from_acd') . "<br>Time: " . get_field('itcs_visit_time_from') . "~" . get_field('itcs_visit_time_to') . "')\" onmouseout=\"UnTip()\">" . get_field('itcs_person_name_acd') ."<br><span class='color_primary'> " . get_field('itcs_visit_time_from') . " </span> </a> </li>";
+			echo "<li><a href='" .get_field('itcs_person_homepage_acd') . "' target='_blank' onmouseover=\"Tip('Name：" . get_field('itcs_person_name_acd') . "<br>Uni: " . get_field('itcs_person_from_acd') . "<br>Time: " . get_field('itcs_visit_date_from') . "~" . get_field('itcs_visit_date_to') . "')\" onmouseout=\"UnTip()\">" . get_field('itcs_person_name_acd') ."<br><span class='color_primary'> " . get_field('itcs_visit_date_from') . " </span> </a> </li>";
 			
 			endwhile;
 			echo "</ul>";
