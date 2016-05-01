@@ -15,6 +15,7 @@ get_header(); ?>
 $isNews = false;
 $isSW = false;
 $isCW = false;
+$isSEM = false;
 $cats = get_the_category();
 foreach ($cats as $cat) {
   #echo $cat->cat_name;
@@ -23,19 +24,21 @@ foreach ($cats as $cat) {
   if ($cat->cat_name == 'NEWS') : $isNews = true; endif;
   if ($cat->cat_name == 'SUMMER &amp; WINTER SCHOOLS') : $isSW = true; endif;
   if ($cat->cat_name == 'CONFERENCES &amp; WORKSHOPS') : $isCW = true; endif;
+  if ($cat->cat_name == 'SEMINARS') : $isSEM = true; endif;
 }
 
 if ($isNews) : echo "<script>window.setCurrentMenu('NEWS');</script>"; endif;
-if ($isSW || $isCW) : echo "<script>window.setCurrentMenu('EVENTS');</script>"; endif;
+if ($isSW || $isCW || $isSEM) : echo "<script>window.setCurrentMenu('EVENTS');</script>"; endif;
 ?>
 
 <?php if ($isNews) { ?>
 <h1 class="news-title"><?php the_title(); ?></h1>
 <div><?php the_content(); ?></div>
-<?php } else if ($isSW || $isCW) { ?>
+<?php } else if ($isSW || $isCW || $isSEM) { ?>
   <div class="nav-title" style="padding-top: 20px; padding-left: 20px;">
     <?php if ($isSW) { ?><a href style="text-decoration: none !important; cursor: text !important;">Summer & Winter Schools</a> <?php } ?>
     <?php if ($isCW) { ?><a href style="text-decoration: none !important; cursor: text !important;">Conferences & Workshops</a> <?php } ?>
+    <?php if ($isSEM) { ?><a href style="text-decoration: none !important; cursor: text !important;">Seminars</a> <?php } ?>
   </div>
   
   <div style="padding-left: 25px; padding-right: 25px;">

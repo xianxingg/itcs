@@ -9,7 +9,14 @@ if ($query->have_posts()) { ?>
         while ($query->have_posts()):
           $query->the_post();
         
-        echo the_post_thumbnail(array(940, 310));
+        if (get_field('itcs_link_url')){
+          echo "<a data-nivo='1' target='_blank' href='" . get_field('itcs_link_url') . "'>";
+          echo the_post_thumbnail(array(940, 310));
+          echo "</a>";
+        } else {
+          echo the_post_thumbnail(array(940, 310));
+        }
+        
         endwhile; 
       ?>
   </div>

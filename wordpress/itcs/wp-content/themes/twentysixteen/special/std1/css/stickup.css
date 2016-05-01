@@ -1,0 +1,293 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+.code { counter-reset: listing; }
+xmp { counter-increment: listing; }
+.code xmp:before { content: counter(listing) ". "; color: gray; }
+
+body {
+  padding-bottom: 0;
+  color: #5a5a5a;
+}
+
+#overview {
+  max-width:none;
+}
+
+.row.featurette {
+  padding: 0 80px;
+  margin-right:0px;
+  margin-left:0px;
+  min-height: 550px;
+}
+
+.row.featurette:nth-child(even){
+  background:#e6f1fa;
+  padding-bottom:50px;
+}
+
+.isStuck{
+    left:0px;
+    width:100%;
+}
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  margin-top:20px;
+  position: relative;
+  z-index: 15;
+
+}
+
+.navbar.navbar-inverse.navbar-static-top {
+  background: #5cb85c;
+  border-color: #398439;
+}
+.navbar.navbar-inverse.navbar-static-top a{
+  color:#fff;
+}
+.navbar.navbar-inverse.navbar-static-top a:hover{
+  color:#0A64A4;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus{
+  background:#398439;
+  font-weight:700;
+}
+.navbar-inverse .navbar-nav>.active>a:hover {
+  background:#398439;
+  color:#fff;
+  font-weight:700;
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  /*
+  margin-bottom: 60px;
+
+  margin-top: -90px;
+
+  Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 450px;
+  background-color: #0A64A4;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+}
+
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Pad the edges of the mobile views a bit */
+.marketing {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  /* Remove the edge padding needed for mobile */
+  .marketing {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+
+  }
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
+
+.navbar-nav>li {
+  width: 16%;
+  text-align: center;
+}
+
+
+.lectureBg { background: #036DB7; }
+.lectureBg p, .lectureBg h4 { color: white; }
+.lectureBg a { color: sandybrown; }
+
+
+
+
+table.scheduletb a:link {
+	color: #666;
+	font-weight: bold;
+	text-decoration:none;
+}
+table.scheduletb a:visited {
+	color: #999999;
+	font-weight:bold;
+	text-decoration:none;
+}
+table.scheduletb a:active,
+table.scheduletb a:hover {
+	color: #bd5a35;
+	text-decoration:underline;
+}
+table.scheduletb {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666;
+	font-size:12px;
+	text-shadow: 1px 1px 0px #fff;
+	background:#eaebec;
+	margin:20px;
+	border:#ccc 1px solid;
+
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+
+	-moz-box-shadow: 0 1px 2px #d1d1d1;
+	-webkit-box-shadow: 0 1px 2px #d1d1d1;
+	box-shadow: 0 1px 2px #d1d1d1;
+  
+  margin-left: 7%;
+  width: 80%;
+}
+table.scheduletb th {
+	padding:21px 25px 22px 25px;
+	border-top:1px solid #fafafa;
+	border-bottom:1px solid #e0e0e0;
+
+	background: #ededed;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+	background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
+  
+  text-align: center !important;
+  border-left: 1px solid #ccc;
+}
+table.scheduletb th:first-child {
+	text-align: left;
+	padding-left:20px;
+  border-left: 0;
+}
+table.scheduletb tr:first-child th:first-child {
+	-moz-border-radius-topleft:3px;
+	-webkit-border-top-left-radius:3px;
+	border-top-left-radius:3px;
+}
+table.scheduletb tr:first-child th:last-child {
+	-moz-border-radius-topright:3px;
+	-webkit-border-top-right-radius:3px;
+	border-top-right-radius:3px;
+}
+table.scheduletb tr {
+	text-align: center;
+	padding-left:20px;
+}
+table.scheduletb td:first-child {
+	/*text-align: left;*/
+	padding-left:20px;
+	border-left: 0;
+}
+table.scheduletb td {
+	padding:18px;
+	border-top: 1px solid #ffffff;
+	border-bottom:1px solid #e0e0e0;
+	border-left: 1px solid #e0e0e0;
+
+	background: #fafafa;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+}
+table.scheduletb tr.even td {
+	background: #f6f6f6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+}
+table.scheduletb tr:last-child td {
+	border-bottom:0;
+}
+table.scheduletb tr:last-child td:first-child {
+	-moz-border-radius-bottomleft:3px;
+	-webkit-border-bottom-left-radius:3px;
+	border-bottom-left-radius:3px;
+}
+table.scheduletb tr:last-child td:last-child {
+	-moz-border-radius-bottomright:3px;
+	-webkit-border-bottom-right-radius:3px;
+	border-bottom-right-radius:3px;
+}
+table.scheduletb tr:hover td {
+	background: #f2f2f2;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
+}
+
+#contact { padding-bottom: 40px; }

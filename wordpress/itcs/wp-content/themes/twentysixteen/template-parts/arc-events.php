@@ -17,6 +17,7 @@ global $post;
 $slug = $post->post_name;
 $cat = '';
 if ($slug == 'conferences-workshops'): $cat = 'conferences_workshops';
+elseif ($slug == 'seminars') : $cat = 'seminars';
 elseif ($slug == 'summer-winter-schools'): $cat = 'summer_winter_schools'; endif;
 ?>
 

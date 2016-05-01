@@ -90,7 +90,7 @@
 .row table.visitorList tr {border-top: 1px dotted #AAAAAA;}
 .row table.visitorList tr:first-child {border-top: 0;}
 .row table.visitorList tr td{padding: 15px;}
-.row table.visitorList img {width: 170px;height: 220px;}
+.row table.visitorList img {width: 185px;height: 220px;}
 
 
 
@@ -119,4 +119,20 @@ h1.news-title {
   color: #ae1831; 
   font-size: 16px;
   border-bottom: 1px solid #ddd;margin-top: 1.5em;padding-bottom: 0.2em;border-left: 0px solid #ddd;line-height: 20px; 
+}
+
+.news_item_index {
+  max-width: 200px;
+  overflow: hidden;
+  float: left;
+  height: 25px;
+}
+
+ul.news li {
+  clear: both;
+  height: 25px;
+}
+
+.navbar .nav > li {
+  padding-left: 20px;
 }
