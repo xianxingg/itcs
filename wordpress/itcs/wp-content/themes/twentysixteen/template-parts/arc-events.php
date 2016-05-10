@@ -83,8 +83,8 @@ elseif ($slug == 'summer-winter-schools'): $cat = 'summer_winter_schools'; endif
   
       <li>
 				<div style="display: block;">
-          <span style="display: block; clear: both;"><?php echo str_replace("-", "/", get_field('itcs_event_date_start')) . " ~ " . str_replace("-", "/", get_field('itcs_event_date_end')) ?></span>
-					<span style="width: 700px; overflow: hidden; padding-left: 20px;"><a href="<?php the_permalink(); ?>" target="_blank"><?php the_title(); ?></a></span>
+          <span style="display: block; clear: both;"><?php if (get_field('itcs_event_date_start') == get_field('itcs_event_date_end')) : echo str_replace("-", "/", get_field('itcs_event_date_start')); else : echo str_replace("-", "/", get_field('itcs_event_date_start')) . " ~ " . str_replace("-", "/", get_field('itcs_event_date_end')); endif; ?></span>
+					<span style="width: 700px; overflow: hidden; padding-left: 20px;"><a href="<?php the_permalink(); ?>" target="_self"><?php the_title(); ?></a></span>
 				</div>
 			</li>
       

@@ -40,6 +40,7 @@
 		<script src="<?php echo get_template_directory_uri(); ?>/js/application.js"></script>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/append.js"></script>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/marquee.js"></script>		
+		<script src="<?php echo get_template_directory_uri(); ?>/js/moment-with-locales.min.js"></script>		
 		<script src="<?php echo get_template_directory_uri(); ?>/js/underscore-min.js"></script>
 
 	</head>

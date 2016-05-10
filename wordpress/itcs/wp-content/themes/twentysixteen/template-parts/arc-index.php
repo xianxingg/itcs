@@ -12,7 +12,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="span4">				
 				<div class="nav-title">
-					<a href="/seminars">SEMINARS</a>
+					<a href="/index.php/seminars">SEMINARS</a>
 				</div>
 				<ul class="news">
 					
@@ -28,20 +28,22 @@ get_header(); ?>
 					
 					if ($query_seminar->have_posts()) {
 					while ($query_seminar->have_posts()) : $query_seminar->the_post();
-						echo "<dl class='conference-home'><dt>" . str_replace("-", ".", get_field('itcs_event_date_start')) . " - " . str_replace("-", ".", get_field('itcs_event_date_end')) . "</dt><dd><a href='" . get_the_permalink() . "' target='_blank'>" . get_the_title() . "</a></dd></dl>";
+						echo "<dl class='conference-home'><dt>" . str_replace("-", ".", get_field('itcs_event_date_start'));
+						if (get_field('itcs_event_date_start') != get_field('itcs_event_date_end')): echo " - " . str_replace("-", ".", get_field('itcs_event_date_end')); endif; 
+						echo "</dt><dd><a href='" . get_the_permalink() . "' target='_blank'>" . get_the_title() . "</a></dd></dl>";
 					endwhile;
 					}
 				?>
 				
 				</ul>
 				<div class="more" style="margin:0">
-					<a href="/seminars">MORE  »</a>
+					<a href="/index.php/seminars">MORE  »</a>
 				</div>
 			</div>
 
 			<div class="span4">
 				<div class="nav-title">
-					<a href="/events/conferences-workshops">CONFERENCES &amp; WORKSHOPS</a>
+					<a href="/index.php/events/conferences-workshops">CONFERENCES &amp; WORKSHOPS</a>
 				</div>
 				
 				<?php
@@ -61,7 +63,7 @@ get_header(); ?>
 					}
 				?>
 				<div class="more">
-					<a href="/events/conferences-workshops">MORE  »</a>
+					<a href="/index.php/events/conferences-workshops">MORE  »</a>
 				</div>
 			</div>
 		</div>
@@ -69,7 +71,7 @@ get_header(); ?>
 
 	<div class="span4">
 		<div class="nav-title">
-			<a href="/events/summer-winter-schools">SUMMER &amp; WINTER SCHOOLS</a>
+			<a href="/index.php/events/summer-winter-schools">SUMMER &amp; WINTER SCHOOLS</a>
 		</div>
 		
 		<?php
@@ -89,7 +91,7 @@ get_header(); ?>
 			}
 		?>
 		<div class="more">
-			<a href="/events/summer-winter-schools">MORE »</a>
+			<a href="/index.php/events/summer-winter-schools">MORE »</a>
 		</div>
 	</div>
 

@@ -46,9 +46,8 @@ if ($query->have_posts()) {
     echo "', start: '" . get_field('itcs_event_date_start') . " " . get_field('itcs_event_time_start') . ":00', end: '" .get_field('itcs_event_date_end') . " " . get_field('itcs_event_time_end') . ":00', url: '";
     if ($isCourse): echo "#"; else : echo get_the_permalink(); endif;
     echo "', className: 'seminar-type-1', allDay: false}, \n";
-?>
-
-<?endwhile;}?>
+  endwhile;
+}?>
 
       ]
     });
