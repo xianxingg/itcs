@@ -117,7 +117,7 @@ get_header(); ?>
 		}
 	?>
 </div>
-<script>$('#wrap3').marquee({auto: true,interval: 300000,speed: 500,showNum: 4,stepLen: 4}); $("#wrap3").css("height", "40px");</script>
+<script>$('#wrap3').marquee({auto: true,interval: 3000,speed: 500,showNum: 4,stepLen: 4}); $("#wrap3").css("height", "40px");</script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/wz_tooltip.js"></script>
 
 <?php get_footer(); ?>

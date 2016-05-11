@@ -19,11 +19,20 @@ $administrative = array("administrative-assistant");
 global $post;
 $slug = $post->post_name;
 $orderby = "itcs_general_order_";
+$order = "desc";
+
 if (in_array($slug, $academics)) $orderby .= 'acd';
 
 # echo "category_name=" . $slug . "&orderby=" . $orderby . "&order=asc";
 
-$query = new WP_Query("category_name=" . $slug . "&orderby=" . $orderby . "&order=asc");
+$query = new WP_Query(
+  array(
+    "showposts" => 10000,
+    "category_name" => $slug,
+    "meta_key" => $orderby,
+    "orderby" => array( "meta_value_num" => $order, "date" => "desc")
+  )
+);
 
 if ($query->have_posts()) { ?>
 <div class="row" style="margin-top: 35px; padding-left: 50px; padding-right: 50px;">
