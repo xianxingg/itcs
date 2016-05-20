@@ -28,10 +28,32 @@
 			</div>
 		</div>
 
+		<style>  
+		.navbar .nav > li.open > a { color: #e6e6e6; }
+		.navbar .nav > li.dropdown.open > .dropdown-toggle { margin-bottom: -3px; }
+		.navbar .nav > li > .dropdown-menu:after { left: 40px; }
+		.navbar .nav > li > .dropdown-menu:before { left: 39px; }
+		</style>
+		
 		<div id="menu" style="">
 			<div class="container " style="">
 				<div class="navbar" style="background-color:#;margin:0px 0;height:42px;color:white;" id="navbar"></div>
-				<script>$("#navbar").load("menu.html", function(){ $(".menuEvents").addClass("currentMenu");});</script>
+				<script>
+					$("#navbar").load("menu.html", function(){ 
+						$(".menuEvents").addClass("currentMenu");
+						
+						$('a.dropdown-toggle').on('click',function(){ 
+							if (~$(this).text().trim().indexOf('PEOPLE')) location.href= $(this).attr('href'); 
+							else return false;
+						});
+						
+						$(".nav > li").hover(function(){
+							if (!$(this).hasClass("open")) $(this).addClass("open");
+						}, function(){
+							if ($(this).hasClass("open")) $(this).removeClass("open");
+						});
+					});
+				</script>
 			</div>
 		</div>
 

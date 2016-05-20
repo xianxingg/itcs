@@ -68,6 +68,25 @@
 						?>
 					<?php endif; ?>
         </div>
+				
+				<style>  
+					.navbar .nav > li.dropdown.open > .dropdown-toggle { margin-bottom: -3px !important; }
+					.navbar .nav > li > .dropdown-menu:after { left: 40px; }
+					.navbar .nav > li > .dropdown-menu:before { left: 39px; }
+				</style>
+				
+				<script>
+					$('a.dropdown-toggle').on('click',function(){ 
+						if (~$(this).text().trim().indexOf('PEOPLE')) location.href= $(this).attr('href'); 
+						else return false;
+					});
+					
+					$(".nav > li").hover(function(){
+						if (!$(this).hasClass("open")) $(this).addClass("open");
+					}, function(){
+						if ($(this).hasClass("open")) $(this).removeClass("open");
+					});
+				</script>
 			</div>
 		</div>
 
